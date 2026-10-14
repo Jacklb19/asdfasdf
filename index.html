@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turnos de urgencias</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+  <h1>Turnos del servicio de urgencias</h1>
+  <span id="aislado" class="chip">crossOriginIsolated: ?</span>
+  <span id="red" class="chip"></span>
+  <span id="rol" class="chip"></span>
+</header>
+<main>
+<section>
+  <div class="fila">
+    <b id="mejor">Cargando...</b>
+  </div>
+  <p id="velocidad"></p>
+  <p id="estado"></p>
+  <p id="manual"></p>
+  <p id="guardado"></p>
+  <div class="fila">
+    <button id="pausa">Pausar búsqueda</button>
+    <label>Workers <select id="nw"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+    <label>Cooperación
+      <select id="periodo"><option value="1000" selected>cada 1 s</option><option value="250">cada 0,25 s</option><option value="4000">cada 4 s</option><option value="0">sin cooperación</option></select>
+    </label>
+    <label><input type="checkbox" id="estres"> Modo estrés (publicar cada mejora)</label>
+    <button id="exportar">Exportar cuadro</button>
+  </div>
+  <p id="nwTexto" class="nota"></p>
+</section>
+
+<section>
+  <div class="fila">
+    <label>Perfil <select id="fPerfil"><option value="">Todos</option><option value="0">Médico general</option><option value="1">Médico reanimación</option><option value="2">Enfermera jefe</option><option value="3">Auxiliar</option></select></label>
+    <label>Buscar <input id="fTexto" type="text" placeholder="nombre"></label>
+    <label><input type="checkbox" id="fViol"> Solo con violaciones o fijaciones</label>
+    <span class="nota">Clic en una casilla para ver por qué. Teclas: F fijar asignado, L fijar libre, A ausencia del día, Supr quitar fijación.</span>
+  </div>
+  <div id="tablaCaja"></div>
+  <p id="faltantes" class="malo"></p>
+</section>
+
+<div class="dos">
+<section>
+  <h2>Explicación de la casilla</h2>
+  <div class="fila">
+    <button id="btnFijar">Fijar asignado</button>
+    <button id="btnLibre">Fijar libre</button>
+    <button id="btnSoltar">Quitar fijación</button>
+    <select id="porQue"><option value="-1">¿Por qué no está...?</option></select>
+  </div>
+  <div class="fila">
+    <label>Ausencia del día <input id="ausD0" type="number" min="1" max="30" value="1"></label>
+    <label>al <input id="ausD1" type="number" min="1" max="30" value="1"></label>
+    <select id="ausMotivo"><option>permiso</option><option>vacaciones</option><option>incapacidad</option><option>comisión</option></select>
+    <button id="btnAusencia">Declarar ausencia</button>
+  </div>
+  <div id="explicacion"><p>Seleccione una casilla del cuadro.</p></div>
+</section>
+<section>
+  <h2>Ediciones en caliente</h2>
+  <div class="fila">
+    <label>Cuota <select id="cuK"><option value="0">MG</option><option value="1">MR</option><option value="2">EJ</option><option value="3">AU</option></select></label>
+    <select id="cuT"><option value="0">mañana</option><option value="1">tarde</option><option value="2">noche</option></select>
+    <label>= <input id="cuV" type="number" value="3" min="0" max="20"></label>
+    <label>día <input id="cuD" type="number" min="1" max="30" placeholder="todos"></label>
+    <button id="btnCuota">Cambiar cuota</button>
+  </div>
+  <p id="ultimaEdicion"></p>
+  <p id="reparacion"></p>
+  <ol id="listaEdiciones"><li>Sin ediciones.</li></ol>
+  <p id="cola"></p>
+</section>
+</div>
+
+<section>
+  <h2>Evolución de la búsqueda</h2>
+  <canvas id="evolucion"></canvas>
+  <canvas id="vecindarios"></canvas>
+</section>
+
+<section>
+  <h2>Rendimiento y pruebas</h2>
+  <div class="dos">
+    <div id="panelInp"></div>
+    <div><p id="lecturas"></p></div>
+  </div>
+  <div id="panelWorkers"></div>
+  <div class="fila">
+    <button id="prueba">Ejecutar prueba de coherencia del delta</button>
+    <button id="medirMsg">Medir postMessage frente a memoria compartida</button>
+  </div>
+  <div id="panelPrueba"></div>
+  <div id="panelMsg"></div>
+  <div id="panelBanco"></div>
+</section>
+</main>
+<script src="modelo.js"></script>
+<script src="tabla.js"></script>
+<script src="metricas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

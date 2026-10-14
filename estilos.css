@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 16px;
+  background: #1e3a5f;
+  color: #fff;
+}
+
+h1 {
+  font-size: 19px;
+  margin: 0;
+  flex: 1;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  color: #1e3a5f;
+}
+
+h3 {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+main {
+  padding: 12px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+section {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  background: #ffffff22;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.chip.ok {
+  background: #2e7d32;
+}
+
+.chip.mal {
+  background: #c62828;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+button,
+select,
+input {
+  font-size: 13px;
+  padding: 6px 10px;
+}
+
+input[type=number] {
+  width: 64px;
+}
+
+button {
+  border: 1px solid #1e3a5f;
+  background: #fff;
+  color: #1e3a5f;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e8eef5;
+}
+
+#tablaCaja {
+  height: 520px;
+  border: 1px solid #d1d5db;
+}
+
+.dos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 3px 5px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f3f4f6;
+}
+
+tr.resaltada {
+  background: #fff3cd;
+}
+
+.respuesta {
+  background: #fff3cd;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+#explicacion {
+  max-height: 420px;
+  overflow: auto;
+}
+
+#evolucion {
+  width: 100%;
+  height: 240px;
+  display: block;
+}
+
+#vecindarios {
+  width: 100%;
+  height: 110px;
+  display: block;
+  margin-top: 8px;
+}
+
+.bien {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.malo {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.nota {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .dos {
+    grid-template-columns: 1fr;
+  }
+}

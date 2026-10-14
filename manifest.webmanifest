@@ -1,0 +1,9 @@
+{
+  "name": "Turnos de urgencias",
+  "short_name": "Turnos",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#1e3a5f",
+  "icons": []
+}
